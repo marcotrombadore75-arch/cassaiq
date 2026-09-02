@@ -132,7 +132,7 @@
     .platforms{background:linear-gradient(180deg,#fbfeff,#f2f9fc)}
     .store-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px;max-width:780px;margin:34px auto 0}.store-card{background:#fff;border:1px solid var(--line);border-radius:23px;padding:24px;display:flex;align-items:center;gap:17px;box-shadow:0 12px 34px rgba(23,56,71,.055)}.store-icon{width:58px;height:58px;border-radius:15px;display:grid;place-items:center;background:#123542;color:white;font-size:27px}.store-card b{font-size:18px;display:block}.store-card small{color:var(--muted)}
     .store-note{text-align:center;color:#718891;font-size:12px;margin-top:18px}
-    .footer{padding:34px 0;border-top:1px solid var(--line);background:#fff;color:#6b8089;font-size:13px}.footer-row{display:flex;align-items:center;justify-content:space-between;gap:20px}.footer-links{display:flex;gap:18px;flex-wrap:wrap}
+    .footer{padding:34px 0;border-top:1px solid var(--line);background:#fff;color:#6b8089;font-size:13px}.footer-row{display:flex;align-items:center;justify-content:space-between;gap:20px}.footer-links{display:flex;gap:18px;flex-wrap:wrap}.site-counter{display:inline-flex;align-items:center;gap:7px;padding:7px 11px;border:1px solid var(--line);border-radius:999px;background:#f7fbfc;color:#607783;font-size:12px;font-weight:800;white-space:nowrap}.site-counter strong{color:var(--blue-dark);font-size:13px;font-variant-numeric:tabular-nums}.site-counter[hidden]{display:none!important}
 
     @media(max-width:900px){
       .client-grid{grid-template-columns:1fr;gap:35px}.client-copy{text-align:center}.client-copy>p{margin-left:auto;margin-right:auto}.client-list{max-width:650px;margin-left:auto;margin-right:auto;text-align:left}.client-free{margin-left:auto;margin-right:auto}.client-demo{min-height:440px;max-width:620px;margin:auto}
@@ -440,12 +440,80 @@
   <footer class="footer">
     <div class="container footer-row">
       <div>© 2026 Menoova · CassaIQ</div>
+      <div class="site-counter" id="siteVisitCounter" hidden aria-live="polite" title="Una visita viene conteggiata al massimo una volta al giorno per questo browser">
+        <span aria-hidden="true">◉</span> Visite al sito: <strong id="siteVisitCount">0</strong>
+      </div>
       <div class="footer-links"><a href="/">Menoova</a><a href="mailto:hello@menoova.it">Informazioni</a><a href="mailto:support@menoova.it">Assistenza</a><a href="#">Privacy</a><a href="#">Termini</a></div>
     </div>
   </footer>
 
   <script>
+    // Contatore visite CassaIQ - Supabase pubblico con RPC protette.
+    // Conta al massimo una visita al giorno per browser, per evitare che un semplice refresh gonfi il totale.
+    const CASSAIQ_SITE_COUNTER = {
+      supabaseUrl: 'https://fmwoycukrablixqqatmo.supabase.co',
+      publishableKey: 'sb_publishable_cgeNpt6V56Wc95lFZUDYSA_xFcmxTTZ',
+      page: 'cassaiq'
+    };
+
+    async function cassaIqCounterRpc(functionName){
+      const response = await fetch(
+        `${CASSAIQ_SITE_COUNTER.supabaseUrl}/rest/v1/rpc/${functionName}`,
+        {
+          method: 'POST',
+          headers: {
+            'apikey': CASSAIQ_SITE_COUNTER.publishableKey,
+            'Authorization': `Bearer ${CASSAIQ_SITE_COUNTER.publishableKey}`,
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({ p_page: CASSAIQ_SITE_COUNTER.page }),
+          cache: 'no-store'
+        }
+      );
+      if(!response.ok) throw new Error(`Contatore HTTP ${response.status}`);
+      const value = await response.json();
+      return Number(value || 0);
+    }
+
+    function localDayKey(){
+      const d = new Date();
+      const y = d.getFullYear();
+      const m = String(d.getMonth()+1).padStart(2,'0');
+      const day = String(d.getDate()).padStart(2,'0');
+      return `${y}-${m}-${day}`;
+    }
+
+    async function updateCassaIqSiteCounter(){
+      const box = document.getElementById('siteVisitCounter');
+      const valueNode = document.getElementById('siteVisitCount');
+      if(!box || !valueNode) return;
+
+      try{
+        const today = localDayKey();
+        const storageKey = 'cassaiq.site.counter.lastDay.v1';
+        let lastDay = null;
+        try{ lastDay = localStorage.getItem(storageKey); }catch(_){}
+
+        const rpc = lastDay === today
+          ? 'cassaiq_site_counter_get'
+          : 'cassaiq_site_counter_hit';
+
+        const total = await cassaIqCounterRpc(rpc);
+
+        if(lastDay !== today){
+          try{ localStorage.setItem(storageKey, today); }catch(_){}
+        }
+
+        valueNode.textContent = new Intl.NumberFormat('it-IT').format(total);
+        box.hidden = false;
+      }catch(error){
+        console.warn('CassaIQ site counter:', error);
+        box.hidden = true;
+      }
+    }
+
     document.addEventListener('DOMContentLoaded', function(){
+      updateCassaIqSiteCounter();
       const header = document.querySelector('.site-header');
       const onScroll = () => {
         if(window.scrollY > 14){ header.classList.add('scrolled'); }
