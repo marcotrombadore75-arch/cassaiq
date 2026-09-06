@@ -121,6 +121,31 @@
     .client-tablet-screen{height:100%;background:#f8fbfc;border-radius:15px;overflow:hidden;display:grid;grid-template-rows:40px 1fr}.client-tablet-top{background:#fff;border-bottom:1px solid #dfe9ed;padding:0 14px;display:flex;align-items:center;color:#2fa8d7;font-weight:950;font-size:12px}.client-tablet-body{padding:13px;display:grid;grid-template-columns:1fr 1fr;gap:9px}.client-order{border:1px solid #dbe8ed;border-radius:10px;background:#fff;padding:10px;font-size:8px;font-weight:800;color:#526c78}.client-order b{display:block;color:#173847;margin-bottom:6px}.client-order.hot{border-color:#8ddab2;background:#eefaf4}.client-arrow{position:absolute;z-index:5;left:44%;top:48%;transform:translate(-50%,-50%);width:75px;height:75px;border-radius:50%;background:#fff;color:#2fa8d7;box-shadow:0 15px 35px rgba(0,0,0,.22);display:grid;place-items:center;font-size:34px;font-weight:950}
     .client-bubble{position:absolute;right:3%;bottom:17px;z-index:6;background:#fff;color:#173847;border-radius:15px;padding:11px 14px;box-shadow:0 14px 30px rgba(0,0,0,.18);font-size:12px;font-weight:850}.client-bubble strong{display:block;color:#27885b;font-size:14px}
 
+    .takeaway-section{background:linear-gradient(180deg,#fff 0%,#f4fafc 100%);position:relative;overflow:hidden}
+    .takeaway-grid{display:grid;grid-template-columns:.92fr 1.08fr;gap:64px;align-items:center}
+    .takeaway-copy>p{font-size:19px;color:var(--muted);margin:0 0 25px;max-width:630px}
+    .takeaway-list{display:grid;gap:12px;margin:0;padding:0;list-style:none}
+    .takeaway-list li{display:flex;gap:11px;align-items:flex-start;color:#3f5d69;font-weight:700}
+    .takeaway-list li:before{content:"✓";flex:0 0 27px;width:27px;height:27px;border-radius:50%;display:grid;place-items:center;background:var(--blue-soft);color:var(--blue-dark);font-weight:950;margin-top:-2px}
+    .takeaway-note{display:inline-flex;align-items:center;gap:8px;margin-top:24px;border:1px solid var(--line);background:#fff;padding:10px 14px;border-radius:999px;color:#45616d;font-size:13px;font-weight:850;box-shadow:0 8px 22px rgba(23,56,71,.05)}
+    .takeaway-demo{position:relative;min-height:470px;display:flex;align-items:center;justify-content:center}
+    .takeaway-panel{position:relative;width:min(610px,100%);background:#fff;border:1px solid var(--line);border-radius:26px;box-shadow:0 28px 65px rgba(23,56,71,.16);overflow:hidden;z-index:2}
+    .takeaway-top{height:58px;padding:0 18px;display:flex;align-items:center;gap:12px;border-bottom:1px solid #e4edf0;background:#fff;font-size:12px;font-weight:900;color:#36535f}
+    .takeaway-title{font-size:17px;color:#173847;margin-right:auto}
+    .takeaway-top .mini-btn{border:1px solid var(--line);border-radius:10px;padding:8px 10px;background:#f7fbfc;color:#526c78}
+    .takeaway-top .mini-btn.primary{background:var(--blue);color:#fff;border-color:var(--blue)}
+    .takeaway-filters{display:flex;gap:7px;padding:13px 16px;border-bottom:1px solid #edf2f4;background:#fbfdfe;overflow:hidden}
+    .takeaway-filter{font-size:10px;font-weight:850;border:1px solid #dbe8ed;background:#fff;color:#607783;border-radius:999px;padding:6px 10px;white-space:nowrap}
+    .takeaway-filter.active{background:#eaf7fc;color:var(--blue-dark);border-color:#bfe4f2}
+    .takeaway-orders{padding:14px;display:grid;grid-template-columns:repeat(2,1fr);gap:10px;background:#f7fbfc}
+    .takeaway-order{background:#fff;border:1px solid #dce8ed;border-radius:15px;padding:13px;box-shadow:0 5px 15px rgba(23,56,71,.035)}
+    .takeaway-order-head{display:flex;align-items:center;gap:8px;margin-bottom:9px}.takeaway-order-head b{font-size:12px;color:#173847}.takeaway-badge{margin-left:auto;font-size:8px;font-weight:900;border-radius:999px;padding:5px 7px;background:#eefaf4;color:var(--green-dark)}
+    .takeaway-order.scheduled .takeaway-badge{background:#fff5dd;color:#8b6516}
+    .takeaway-order small{display:block;color:#718891;font-size:9px;line-height:1.45}.takeaway-total{margin-top:9px;padding-top:8px;border-top:1px solid #edf2f4;display:flex;justify-content:space-between;font-size:10px;font-weight:900;color:#36535f}
+    .takeaway-orb{position:absolute;width:380px;height:380px;border-radius:50%;background:linear-gradient(135deg,#dff4fb,#e7f8ed);filter:blur(3px);opacity:.8}
+    @media(max-width:900px){.takeaway-grid{grid-template-columns:1fr;gap:28px}.takeaway-copy{text-align:center}.takeaway-copy>p{margin-left:auto;margin-right:auto}.takeaway-list{max-width:680px;margin-left:auto;margin-right:auto;text-align:left}.takeaway-note{margin-left:auto;margin-right:auto}.takeaway-demo{min-height:410px}}
+    @media(max-width:600px){.takeaway-demo{min-height:335px}.takeaway-panel{border-radius:20px}.takeaway-top{padding:0 10px;gap:6px}.takeaway-title{font-size:14px}.takeaway-top .mini-btn{padding:6px 7px;font-size:9px}.takeaway-orders{grid-template-columns:1fr;padding:10px}.takeaway-order:nth-child(n+3){display:none}.takeaway-orb{width:270px;height:270px}}
+
     .audience{background:#f7fbfc}
     .audience-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:14px}.aud-card{background:#fff;border:1px solid var(--line);border-radius:19px;padding:25px 16px;text-align:center;font-weight:850;box-shadow:0 8px 25px rgba(23,56,71,.035)}.aud-card span{font-size:30px;display:block;margin-bottom:8px}
 
@@ -228,6 +253,7 @@
         <a href="#come-funziona">Come funziona</a>
         <a href="#video">Video</a>
         <a href="#client">Client</a>
+        <a href="#asporto">Asporto</a>
         <a href="#per-chi">Per chi</a>
         <a href="#prezzo">Prezzo</a>
         <a href="#scarica">Scarica</a>
@@ -286,7 +312,7 @@
           <div class="eyebrow">Ti basta un dispositivo</div>
           <h2>Basta un tablet o uno smartphone per emettere uno scontrino fiscale.</h2>
           <p>Con CassaIQ puoi trasformare iPad, iPhone, tablet e smartphone Android in una vera cassa smart. Gestisci prodotti, carrello, pagamenti, tavoli e statistiche direttamente dal dispositivo. Per la sala, CassaIQ Client permette al personale di prendere le comande dai propri smartphone.</p>
-          <div class="feature-chips"><span>Vendita rapida</span><span>Prodotti e categorie</span><span>Tavoli</span><span>Comande</span><span>Statistiche</span></div>
+          <div class="feature-chips"><span>Vendita rapida</span><span>Prodotti e categorie</span><span>Tavoli</span><span>Comande</span><span>Asporto</span><span>Statistiche</span></div>
         </div>
       </div>
     </section>
@@ -301,7 +327,7 @@
             <h3>Con il tuo Epson RT</h3>
             <p>Continua a utilizzare il tuo registratore fiscale Epson e aggiungi tutte le funzionalità smart di CassaIQ.</p>
             <ul class="ticks">
-              <li>Gestione prodotti e categorie</li><li>Supplementi e modificatori</li><li>Tavoli e comande</li><li>Statistiche e storico vendite</li><li>Ordini in attesa e sconti</li><li>CassaIQ Client per la sala</li>
+              <li>Gestione prodotti e categorie</li><li>Supplementi e modificatori</li><li>Tavoli e comande</li><li>Ordini da asporto</li><li>Statistiche e storico vendite</li><li>Ordini in attesa e sconti</li><li>CassaIQ Client per la sala</li>
             </ul>
           </article>
           </div>
@@ -310,7 +336,7 @@
             <h3>Anche senza registratore di cassa</h3>
             <p>Con una stampante di rete puoi consegnare il documento al cliente mentre CassaIQ gestisce l’emissione tramite il servizio Documento Commerciale Online dell’Agenzia delle Entrate.</p>
             <ul class="ticks">
-              <li>Documento commerciale fiscalmente valido</li><li>Nessun registratore telematico necessario in modalità DCO</li><li>Stampa cliente su stampante di rete</li><li>Stesse funzioni smart della cassa</li><li>Flusso comande e tavoli incluso</li>
+              <li>Documento commerciale fiscalmente valido</li><li>Nessun registratore telematico necessario in modalità DCO</li><li>Stampa cliente su stampante di rete</li><li>Stesse funzioni smart della cassa</li><li>Flusso comande, tavoli e asporto incluso</li>
             </ul>
             <div class="legal-note">La modalità DCO richiede le credenziali abilitate ai servizi telematici dell’Agenzia delle Entrate e una connessione Internet per l’emissione.</div>
           </article></div>
@@ -340,6 +366,72 @@
       </div>
     </section>
 
+    <section id="asporto" class="takeaway-section">
+      <div class="container takeaway-grid">
+        <div class="takeaway-copy reveal from-left">
+          <div class="eyebrow">Nuova funzione</div>
+          <h2>Asporto organizzato, dalla prenotazione alla cassa.</h2>
+          <p>CassaIQ gestisce gli ordini da asporto nello stesso ambiente della cassa: puoi registrare il cliente, scegliere ritiro o consegna, programmare giorno e ora e richiamare l’ordine quando arriva il momento di prepararlo.</p>
+          <ul class="takeaway-list">
+            <li>Ordini di oggi e ordini futuri sempre separati e facili da trovare.</li>
+            <li>Ritiro o consegna, con telefono, indirizzo e note del cliente.</li>
+            <li>Stesso catalogo della cassa, con prodotti, supplementi e modifiche.</li>
+            <li>Gli ordini programmati passano automaticamente tra quelli da preparare nel giorno previsto.</li>
+            <li>Quando l’ordine viene pagato, viene chiuso automaticamente nello storico.</li>
+          </ul>
+          <div class="takeaway-note">✓ Incluso nel piano CassaIQ, senza costi aggiuntivi</div>
+        </div>
+
+        <div class="takeaway-demo reveal from-right" aria-label="Gestione ordini da asporto in CassaIQ">
+          <div class="takeaway-orb"></div>
+          <div class="takeaway-panel">
+            <div class="takeaway-top">
+              <span class="mini-btn">←</span>
+              <span class="takeaway-title">Asporto</span>
+              <span class="mini-btn">Aggiorna</span>
+              <span class="mini-btn primary">+ Nuovo asporto</span>
+            </div>
+            <div class="takeaway-filters">
+              <span class="takeaway-filter active">Oggi</span>
+              <span class="takeaway-filter">Futuri</span>
+              <span class="takeaway-filter">Chiusi</span>
+              <span class="takeaway-filter">Tutti</span>
+            </div>
+            <div class="takeaway-orders">
+              <div class="takeaway-order">
+                <div class="takeaway-order-head"><b>#12 · Marco</b><span class="takeaway-badge">DA PREPARARE</span></div>
+                <small>Ritiro · 20:15</small>
+                <small>2 Pizze · 1 Bevanda</small>
+                <small>Tel. cliente · Note ordine</small>
+                <div class="takeaway-total"><span>Ordine</span><span>€ 26,00</span></div>
+              </div>
+              <div class="takeaway-order scheduled">
+                <div class="takeaway-order-head"><b>#13 · Sara</b><span class="takeaway-badge">PROGRAMMATO</span></div>
+                <small>Consegna · domani 19:45</small>
+                <small>Indirizzo e recapito</small>
+                <small>Prodotti e note già salvati</small>
+                <div class="takeaway-total"><span>Ordine</span><span>€ 34,50</span></div>
+              </div>
+              <div class="takeaway-order">
+                <div class="takeaway-order-head"><b>#14 · Luca</b><span class="takeaway-badge">DA PREPARARE</span></div>
+                <small>Ritiro · 21:00</small>
+                <small>Catalogo CassaIQ</small>
+                <small>Supplementi inclusi</small>
+                <div class="takeaway-total"><span>Ordine</span><span>€ 18,00</span></div>
+              </div>
+              <div class="takeaway-order scheduled">
+                <div class="takeaway-order-head"><b>#15 · Anna</b><span class="takeaway-badge">PROGRAMMATO</span></div>
+                <small>Ritiro · sabato 12:30</small>
+                <small>Ordine salvato in anticipo</small>
+                <small>Pronto per il giorno previsto</small>
+                <div class="takeaway-total"><span>Ordine</span><span>€ 41,00</span></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <section id="per-chi" class="audience">
       <div class="container">
         <div class="section-head reveal"><div class="eyebrow">A chi si rivolge</div><h2>Una cassa pensata per chi lavora davvero al banco e in sala.</h2><p>Per attività che vogliono un sistema più semplice, moderno e flessibile senza rinunciare alla gestione fiscale.</p></div>
@@ -356,7 +448,7 @@
           <span class="tag">UN SOLO PIANO · TUTTO INCLUSO</span>
           <div class="price">€9,90 <small>/ mese</small></div>
           <div class="after">un solo piano, tutte le funzioni principali incluse</div>
-          <ul class="ticks"><li>Cassa e vendita rapida</li><li>Prodotti, categorie e supplementi</li><li>Tavoli e comande</li><li>Statistiche</li><li>CassaIQ Client incluso</li><li>iOS e Android</li></ul>
+          <ul class="ticks"><li>Cassa e vendita rapida</li><li>Prodotti, categorie e supplementi</li><li>Tavoli e comande</li><li>Gestione asporto</li><li>Statistiche</li><li>CassaIQ Client incluso</li><li>iOS e Android</li></ul>
           <a class="btn-primary" href="#scarica">Scarica CassaIQ</a>
         </div>
         <div class="price-copy reveal from-right">
@@ -389,7 +481,7 @@
         <div class="section-head reveal">
           <div class="eyebrow">Domande frequenti</div>
           <h2>Tutto quello che vuoi sapere prima di iniziare.</h2>
-          <p>Le risposte alle domande più comuni su dispositivi, modalità fiscale, Agenzia delle Entrate e CassaIQ Client.</p>
+          <p>Le risposte alle domande più comuni su dispositivi, modalità fiscale, asporto, Agenzia delle Entrate e CassaIQ Client.</p>
         </div>
         <div class="faq-list">
           <details class="faq-item reveal">
@@ -410,6 +502,13 @@
             <summary>Come si collega CassaIQ all’Agenzia delle Entrate?</summary>
             <div class="faq-answer">
               <p>Per la modalità DCO sono necessarie le credenziali abilitate ai servizi telematici dell’Agenzia delle Entrate. CassaIQ utilizza la sessione Fisconline per raggiungere il servizio Documento Commerciale Online e completare l’emissione fiscale.</p>
+            </div>
+          </details>
+          <details class="faq-item reveal">
+            <summary>Posso gestire anche gli ordini da asporto?</summary>
+            <div class="faq-answer">
+              <p><strong>Sì.</strong> CassaIQ include una sezione Asporto dedicata agli ordini con ritiro o consegna. Puoi registrare cliente, telefono, indirizzo, giorno e ora programmati, prodotti, supplementi e note.</p>
+              <p>Gli ordini futuri restano tra i programmati e, nel giorno previsto, diventano automaticamente ordini da preparare. Dopo il pagamento vengono spostati tra gli ordini chiusi.</p>
             </div>
           </details>
           <details class="faq-item reveal">
