@@ -16,14 +16,16 @@
       --radius:26px;
     }
     *{box-sizing:border-box}
-    html{scroll-behavior:smooth}
+    html{scroll-behavior:smooth;scroll-padding-top:88px}
     body{margin:0;font-family:Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;color:var(--ink);background:#fff;line-height:1.5}
     a{text-decoration:none;color:inherit}
+    .launch-banner{padding:10px 20px;background:#123542;color:#e8f6fa;text-align:center;font-size:14px;font-weight:800;letter-spacing:.01em}
+    .launch-banner strong{color:#7edcf7}.launch-banner .sep{display:inline-block;margin:0 12px;color:#7fa0ad}
     .container{width:min(1180px,calc(100% - 40px));margin:auto}
     .nav{height:76px;display:flex;align-items:center;justify-content:space-between;gap:24px}
     .brand{display:flex;align-items:center;gap:11px;font-weight:900;font-size:24px;letter-spacing:-.7px}
     .brand img{width:42px;height:42px;border-radius:11px;box-shadow:0 7px 18px rgba(47,168,215,.18)}.brand-word{display:inline-flex;align-items:baseline;letter-spacing:-.7px}.brand-cassa{color:#123542}.brand-iq{color:#2fa8d7}
-    .navlinks{display:flex;align-items:center;gap:25px;color:#4c6672;font-weight:700;font-size:14px}
+    .navlinks{display:flex;align-items:center;gap:18px;color:#4c6672;font-weight:700;font-size:13px}
     .nav-cta,.btn-primary,.btn-secondary{display:inline-flex;align-items:center;justify-content:center;border-radius:13px;font-weight:800;transition:.2s ease}
     .nav-cta{background:var(--blue);color:#fff;padding:11px 16px}
     .nav-cta:hover,.btn-primary:hover{transform:translateY(-1px);box-shadow:0 12px 26px rgba(47,168,215,.24)}
@@ -147,7 +149,7 @@
     @media(max-width:600px){.takeaway-demo{min-height:335px}.takeaway-panel{border-radius:20px}.takeaway-top{padding:0 10px;gap:6px}.takeaway-title{font-size:14px}.takeaway-top .mini-btn{padding:6px 7px;font-size:9px}.takeaway-orders{grid-template-columns:1fr;padding:10px}.takeaway-order:nth-child(n+3){display:none}.takeaway-orb{width:270px;height:270px}}
 
     .audience{background:#f7fbfc}
-    .audience-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:14px}.aud-card{background:#fff;border:1px solid var(--line);border-radius:19px;padding:25px 16px;text-align:center;font-weight:850;box-shadow:0 8px 25px rgba(23,56,71,.035)}.aud-card span{font-size:30px;display:block;margin-bottom:8px}
+    .audience-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}.aud-card{background:#fff;border:1px solid var(--line);border-radius:19px;padding:25px 16px;text-align:center;font-weight:850;box-shadow:0 8px 25px rgba(23,56,71,.035)}.aud-card span{font-size:30px;display:block;margin-bottom:8px}
 
     .price-wrap{display:grid;grid-template-columns:.86fr 1.14fr;gap:48px;align-items:center}
     .price-card{background:#123542;color:#fff;border-radius:30px;padding:38px;box-shadow:0 28px 65px rgba(18,53,66,.23);position:relative;overflow:hidden}.price-card:after{content:"";position:absolute;width:220px;height:220px;border-radius:50%;background:rgba(85,197,138,.16);right:-80px;top:-80px}
@@ -155,8 +157,18 @@
     .price-copy h2{text-align:left}.price-copy p{font-size:18px;color:var(--muted)}
 
     .platforms{background:linear-gradient(180deg,#fbfeff,#f2f9fc)}
-    .store-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px;max-width:780px;margin:34px auto 0}.store-card{background:#fff;border:1px solid var(--line);border-radius:23px;padding:24px;display:flex;align-items:center;gap:17px;box-shadow:0 12px 34px rgba(23,56,71,.055)}.store-icon{width:58px;height:58px;border-radius:15px;display:grid;place-items:center;background:#123542;color:white;font-size:27px}.store-card b{font-size:18px;display:block}.store-card small{color:var(--muted)}
+    .store-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px;max-width:780px;margin:34px auto 0}.store-card{background:#fff;border:1px solid var(--line);border-radius:23px;padding:24px;display:flex;align-items:center;gap:17px;box-shadow:0 12px 34px rgba(23,56,71,.055)}.store-icon{width:58px;height:58px;border-radius:15px;display:grid;place-items:center;background:#123542;color:white;font-size:27px}.store-card b{font-size:18px;display:block}.store-card small{display:block;color:var(--muted)}
+    .store-date{display:inline-flex;margin-top:7px;padding:5px 9px;border-radius:999px;background:var(--blue-soft);color:var(--blue-dark);font-size:12px;font-weight:900}
     .store-note{text-align:center;color:#718891;font-size:12px;margin-top:18px}
+    .contact-section{background:#fff}
+    .contact-grid{display:grid;grid-template-columns:.82fr 1.18fr;gap:62px;align-items:start}
+    .contact-copy h2{margin-bottom:18px}.contact-copy>p{font-size:18px;color:var(--muted);margin:0 0 26px}
+    .contact-details{display:grid;gap:12px}.contact-details a,.contact-details span{display:flex;align-items:center;gap:11px;font-weight:800;color:#36535f}.contact-details i{width:36px;height:36px;border-radius:11px;background:var(--blue-soft);color:var(--blue-dark);display:grid;place-items:center;font-style:normal}
+    .contact-form{background:#f7fbfc;border:1px solid var(--line);border-radius:26px;padding:30px;box-shadow:0 18px 50px rgba(23,56,71,.08)}
+    .form-grid{display:grid;grid-template-columns:1fr 1fr;gap:17px}.form-field{display:grid;gap:7px}.form-field.full{grid-column:1/-1}.form-field label{font-size:13px;font-weight:850;color:#36535f}
+    .form-field input,.form-field select,.form-field textarea{width:100%;border:1px solid #cfdee4;border-radius:12px;background:#fff;color:var(--ink);font:inherit;padding:13px 14px;outline:none;transition:border-color .2s ease,box-shadow .2s ease}.form-field textarea{min-height:132px;resize:vertical}.form-field input:focus,.form-field select:focus,.form-field textarea:focus{border-color:var(--blue);box-shadow:0 0 0 4px rgba(47,168,215,.12)}
+    .privacy-check{grid-column:1/-1;display:flex;align-items:flex-start;gap:10px;color:#607783;font-size:13px}.privacy-check input{margin-top:3px}.privacy-check a{color:var(--blue-dark);font-weight:800}
+    .contact-submit{grid-column:1/-1;border:0;cursor:pointer;font:inherit}.form-note{grid-column:1/-1;margin:0;color:#718891;font-size:12px}.form-status{grid-column:1/-1;margin:0;color:var(--green-dark);font-size:13px;font-weight:800;min-height:20px}
     .footer{padding:34px 0;border-top:1px solid var(--line);background:#fff;color:#6b8089;font-size:13px}.footer-row{display:flex;align-items:center;justify-content:space-between;gap:20px}.footer-links{display:flex;gap:18px;flex-wrap:wrap}.site-counter{display:inline-flex;align-items:center;gap:7px;padding:7px 11px;border:1px solid var(--line);border-radius:999px;background:#f7fbfc;color:#607783;font-size:12px;font-weight:800;white-space:nowrap}.site-counter strong{color:var(--blue-dark);font-size:13px;font-variant-numeric:tabular-nums}.site-counter[hidden]{display:none!important}
 
     @media(max-width:900px){
@@ -167,6 +179,9 @@
     }
     @media(max-width:600px){
       .container{width:min(100% - 26px,1180px)}.nav{height:66px}.video-section{padding:64px 0}.video-player{border-radius:22px}.video-shell:before{inset:-12px -10px 12px 10px;border-radius:26px}.video-duration{right:10px;top:10px}.brand{font-size:20px}.brand img{width:36px;height:36px}.nav-cta{font-size:12px;padding:9px 11px}.hero{padding:44px 0 48px}.hero-question{letter-spacing:-2.5px}.hero-brand{letter-spacing:-3px}.hero p{font-size:18px}.device-stage{min-height:315px}.tablet{width:100%;border-width:7px;border-radius:20px}.blob{width:290px;height:290px}.pos-main{grid-template-columns:repeat(2,1fr)}.tile{font-size:7px}.fc1,.fc2{display:none}.trial h2{font-size:27px}section{padding:68px 0}.split{gap:20px}.phone-stage{min-height:430px}.phone-image{width:min(230px,64vw);max-height:430px;height:auto}.mode-card{padding:25px}.audience-grid{grid-template-columns:1fr 1fr}.aud-card{padding:20px 10px}.store-grid{grid-template-columns:1fr}.footer-row{flex-direction:column;text-align:center}.footer-links{justify-content:center}.price{font-size:58px}.client-demo{min-height:390px}.client-phone{width:155px;height:310px;left:0}.client-tablet{width:285px;right:-8px;top:45px}.client-arrow{width:58px;height:58px;font-size:26px;left:43%}.client-bubble{display:none}}
+
+    @media(max-width:900px){.contact-grid{grid-template-columns:1fr;gap:34px}.contact-copy{text-align:center}.contact-copy>p{max-width:680px;margin-left:auto;margin-right:auto}.contact-details{max-width:420px;margin:auto;text-align:left}}
+    @media(max-width:600px){.launch-banner{padding:9px 12px;font-size:12px}.launch-banner .sep{display:block;height:2px;overflow:hidden}.contact-form{padding:22px 17px}.form-grid{grid-template-columns:1fr}.form-field.full,.privacy-check,.contact-submit,.form-note,.form-status{grid-column:1}.contact-details a,.contact-details span{font-size:14px}}
 
     .faq-section{background:#f7fbfc;border-top:1px solid #edf3f5}
     .faq-wrap{max-width:900px;margin:0 auto}
@@ -217,7 +232,7 @@
     .trial-row{position:relative;z-index:1}
     .section-head{position:relative;z-index:1}
     .store-card:nth-child(1){--reveal-delay:80ms}.store-card:nth-child(2){--reveal-delay:180ms}
-    .aud-card:nth-child(1){--reveal-delay:0ms}.aud-card:nth-child(2){--reveal-delay:70ms}.aud-card:nth-child(3){--reveal-delay:140ms}.aud-card:nth-child(4){--reveal-delay:210ms}.aud-card:nth-child(5){--reveal-delay:280ms}
+    .aud-card:nth-child(1){--reveal-delay:0ms}.aud-card:nth-child(2){--reveal-delay:70ms}.aud-card:nth-child(3){--reveal-delay:140ms}.aud-card:nth-child(4){--reveal-delay:210ms}.aud-card:nth-child(5){--reveal-delay:280ms}.aud-card:nth-child(6){--reveal-delay:350ms}.aud-card:nth-child(7){--reveal-delay:420ms}.aud-card:nth-child(8){--reveal-delay:490ms}.aud-card:nth-child(9){--reveal-delay:560ms}
     .faq-item:nth-child(1){--reveal-delay:0ms}.faq-item:nth-child(2){--reveal-delay:60ms}.faq-item:nth-child(3){--reveal-delay:120ms}.faq-item:nth-child(4){--reveal-delay:180ms}.faq-item:nth-child(5){--reveal-delay:240ms}.faq-item:nth-child(6){--reveal-delay:300ms}
     @keyframes floatDevice{0%,100%{transform:translateY(0) rotate(-2deg)}50%{transform:translateY(-12px) rotate(-1deg)}}
     @keyframes blobFloat{0%,100%{transform:rotate(-6deg) scale(1)}50%{transform:rotate(2deg) scale(1.04)}}
@@ -246,6 +261,7 @@
   </style>
 </head>
 <body>
+  <div class="launch-banner" role="status">CassaIQ arriva su <strong>App Store il 14 settembre</strong><span class="sep">•</span><strong>Google Play il 21 settembre</strong></div>
   <header class="site-header"><div class="container">
     <nav class="nav">
       <a class="brand" href="#"><img src="assets/cassaiq-icon.png" alt="CassaIQ"><span class="brand-word"><span class="brand-cassa">Cassa</span><span class="brand-iq">IQ</span></span></a>
@@ -257,6 +273,7 @@
         <a href="#per-chi">Per chi</a>
         <a href="#prezzo">Prezzo</a>
         <a href="#scarica">Scarica</a>
+        <a href="#contatti">Contatti</a>
         <a href="#faq">FAQ</a>
         <a class="nav-cta" href="#scarica">Scarica</a>
       </div>
@@ -436,8 +453,15 @@
       <div class="container">
         <div class="section-head reveal"><div class="eyebrow">A chi si rivolge</div><h2>Una cassa pensata per chi lavora davvero al banco e in sala.</h2><p>Per attività che vogliono un sistema più semplice, moderno e flessibile senza rinunciare alla gestione fiscale.</p></div>
         <div class="audience-grid">
-          <div class="aud-card reveal"><span>☕</span>Bar</div><div class="aud-card reveal"><span>🥖</span>Panifici</div><div class="aud-card reveal"><span>🍽️</span>Ristorazione</div><div class="aud-card reveal"><span>🍔</span>Street food</div><div class="aud-card reveal"><span>🛍️</span>Take away</div>
-          
+          <div class="aud-card reveal"><span>☕</span>Bar</div>
+          <div class="aud-card reveal"><span>🥖</span>Panifici</div>
+          <div class="aud-card reveal"><span>🍽️</span>Ristorazione</div>
+          <div class="aud-card reveal"><span>🍔</span>Street food</div>
+          <div class="aud-card reveal"><span>🛍️</span>Take away</div>
+          <div class="aud-card reveal"><span>🧁</span>Pasticcerie</div>
+          <div class="aud-card reveal"><span>🍦</span>Gelaterie</div>
+          <div class="aud-card reveal"><span>🥘</span>Gastronomie</div>
+          <div class="aud-card reveal"><span>🏪</span>Piccoli negozi</div>
         </div>
       </div>
     </section>
@@ -461,18 +485,46 @@
 
     <section id="scarica" class="platforms">
       <div class="container">
-        <div class="section-head reveal"><div class="eyebrow">Scarica CassaIQ</div><h2>Disponibile su Apple e Android.</h2><p>Scarica CassaIQ sul tuo dispositivo e prova tutte le funzionalità per 30 giorni. Cassa e Client possono anche essere su piattaforme diverse.</p></div>
+        <div class="section-head reveal"><div class="eyebrow">Lancio CassaIQ</div><h2>Due date. Un’unica cassa smart.</h2><p>CassaIQ arriva prima su iPhone e iPad, poi su Android. Dal giorno del lancio potrai scaricarla e provare tutte le funzionalità gratuitamente per 30 giorni.</p></div>
         <div class="store-grid">
-          <div class="store-card reveal"><div class="store-icon"></div><div><b>iPhone e iPad</b><small>Distribuzione tramite App Store</small></div></div>
-          <div class="store-card reveal"><div class="store-icon">▶</div><div><b>Android</b><small>Distribuzione tramite Google Play</small></div></div>
+          <div class="store-card reveal"><div class="store-icon"></div><div><b>iPhone e iPad</b><small>Disponibile su App Store</small><span class="store-date">Dal 14 settembre 2026</span></div></div>
+          <div class="store-card reveal"><div class="store-icon">▶</div><div><b>Android</b><small>Disponibile su Google Play</small><span class="store-date">Dal 21 settembre 2026</span></div></div>
           
         </div>
 
         <div class="download-trial reveal">
-          <div><strong>Prova CassaIQ gratis per 30 giorni.</strong><span>Scarica l’app dallo store e prova la cassa completa prima di decidere.</span></div>
-          <a class="btn-primary" href="#scarica">30 giorni gratis</a>
+          <div><strong>30 giorni gratis dal momento del download.</strong><span>Scarica CassaIQ dal tuo store e prova la cassa completa prima di decidere.</span></div>
+          <a class="btn-primary" href="#contatti">Avvisami al lancio</a>
         </div>
         <div class="store-note">I link diretti agli store possono essere collegati appena le pagine pubbliche sono definitive.</div>
+      </div>
+    </section>
+
+    <section id="contatti" class="contact-section">
+      <div class="container contact-grid">
+        <div class="contact-copy reveal from-left">
+          <div class="eyebrow">Parliamo della tua attività</div>
+          <h2>Vuoi sapere se CassaIQ è adatta a te?</h2>
+          <p>Raccontaci come lavori oggi. Ti risponderemo con le informazioni utili e, se lo desideri, ti avviseremo quando l’app sarà disponibile sul tuo store.</p>
+          <div class="contact-details">
+            <a href="mailto:hello@menoova.it"><i aria-hidden="true">✉</i>hello@menoova.it</a>
+            <span><i aria-hidden="true"></i>iOS dal 14 settembre 2026</span>
+            <span><i aria-hidden="true">▶</i>Android dal 21 settembre 2026</span>
+          </div>
+        </div>
+        <form class="contact-form reveal from-right" id="contactForm">
+          <div class="form-grid">
+            <div class="form-field"><label for="contactName">Nome e cognome</label><input id="contactName" name="name" type="text" autocomplete="name" required></div>
+            <div class="form-field"><label for="contactEmail">Email</label><input id="contactEmail" name="email" type="email" autocomplete="email" required></div>
+            <div class="form-field"><label for="contactPhone">Telefono (facoltativo)</label><input id="contactPhone" name="phone" type="tel" autocomplete="tel"></div>
+            <div class="form-field"><label for="contactSector">Tipo di attività</label><select id="contactSector" name="sector" required><option value="">Seleziona</option><option>Bar</option><option>Panificio</option><option>Ristorazione</option><option>Street food</option><option>Take away</option><option>Pasticceria</option><option>Gelateria</option><option>Gastronomia</option><option>Piccolo negozio</option><option>Altro</option></select></div>
+            <div class="form-field full"><label for="contactMessage">Come possiamo aiutarti?</label><textarea id="contactMessage" name="message" placeholder="Descrivi brevemente la tua attività o cosa vuoi sapere su CassaIQ" required></textarea></div>
+            <label class="privacy-check"><input name="privacy" type="checkbox" required><span>Ho letto l’<a href="privacy.html">informativa privacy</a> e autorizzo il trattamento dei dati per ricevere risposta.</span></label>
+            <button class="btn-primary contact-submit" type="submit">Invia la richiesta</button>
+            <p class="form-note">Premendo “Invia” si aprirà il tuo programma email con la richiesta già compilata.</p>
+            <p class="form-status" id="contactFormStatus" aria-live="polite"></p>
+          </div>
+        </form>
       </div>
     </section>
 
@@ -542,7 +594,7 @@
       <div class="site-counter" id="siteVisitCounter" hidden aria-live="polite" title="Una visita viene conteggiata al massimo una volta al giorno per questo browser">
         <span aria-hidden="true">◉</span> Visite al sito: <strong id="siteVisitCount">0</strong>
       </div>
-      <div class="footer-links"><a href="/">Menoova</a><a href="mailto:hello@menoova.it">Informazioni</a><a href="mailto:support@menoova.it">Assistenza</a><a href="privacy.html">Privacy</a><a href="cookie-policy.html">Cookie</a><a href="termini-condizioni.html">Termini</a></div>
+      <div class="footer-links"><a href="/">Menoova</a><a href="#contatti">Informazioni</a><a href="mailto:support@menoova.it">Assistenza</a><a href="privacy.html">Privacy</a><a href="cookie-policy.html">Cookie</a><a href="termini-condizioni.html">Termini</a></div>
     </div>
   </footer>
 
@@ -658,6 +710,27 @@
           nodes.forEach(node => { node.style.transform = ''; });
         });
       });
+
+      const contactForm = document.getElementById('contactForm');
+      if(contactForm){
+        contactForm.addEventListener('submit', (event)=>{
+          event.preventDefault();
+          const data = new FormData(contactForm);
+          const subject = `Richiesta informazioni CassaIQ · ${data.get('sector')}`;
+          const body = [
+            `Nome: ${data.get('name')}`,
+            `Email: ${data.get('email')}`,
+            `Telefono: ${data.get('phone') || 'Non indicato'}`,
+            `Tipo di attività: ${data.get('sector')}`,
+            '',
+            'Messaggio:',
+            data.get('message')
+          ].join('\n');
+          const status = document.getElementById('contactFormStatus');
+          if(status) status.textContent = 'Richiesta pronta: si sta aprendo il tuo programma email.';
+          window.location.href = `mailto:hello@menoova.it?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+        });
+      }
     });
   </script>
 
