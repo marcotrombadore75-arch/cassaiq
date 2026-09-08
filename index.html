@@ -157,7 +157,8 @@
     .price-copy h2{text-align:left}.price-copy p{font-size:18px;color:var(--muted)}
 
     .platforms{background:linear-gradient(180deg,#fbfeff,#f2f9fc)}
-    .store-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px;max-width:780px;margin:34px auto 0}.store-card{background:#fff;border:1px solid var(--line);border-radius:23px;padding:24px;display:flex;align-items:center;gap:17px;box-shadow:0 12px 34px rgba(23,56,71,.055)}.store-icon{width:58px;height:58px;border-radius:15px;display:grid;place-items:center;background:#123542;color:white;font-size:27px}.store-card b{font-size:18px;display:block}.store-card small{display:block;color:var(--muted)}
+    .store-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px;max-width:780px;margin:34px auto 0}.store-card{background:#fff;border:1px solid var(--line);border-radius:23px;padding:25px;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;gap:13px;box-shadow:0 12px 34px rgba(23,56,71,.055)}.store-card b{font-size:18px;display:block}.store-card small{display:block;color:var(--muted)}
+    .store-badge-link{display:inline-flex;padding:10px;transition:transform .2s ease}.store-badge-link:hover{transform:translateY(-2px)}.store-badge{display:block;width:auto;height:54px;max-width:100%}
     .store-date{display:inline-flex;margin-top:7px;padding:5px 9px;border-radius:999px;background:var(--blue-soft);color:var(--blue-dark);font-size:12px;font-weight:900}
     .store-note{text-align:center;color:#718891;font-size:12px;margin-top:18px}
     .contact-section{background:#fff}
@@ -169,7 +170,7 @@
     .form-field input,.form-field select,.form-field textarea{width:100%;border:1px solid #cfdee4;border-radius:12px;background:#fff;color:var(--ink);font:inherit;padding:13px 14px;outline:none;transition:border-color .2s ease,box-shadow .2s ease}.form-field textarea{min-height:132px;resize:vertical}.form-field input:focus,.form-field select:focus,.form-field textarea:focus{border-color:var(--blue);box-shadow:0 0 0 4px rgba(47,168,215,.12)}
     .privacy-check{grid-column:1/-1;display:flex;align-items:flex-start;gap:10px;color:#607783;font-size:13px}.privacy-check input{margin-top:3px}.privacy-check a{color:var(--blue-dark);font-weight:800}
     .contact-submit{grid-column:1/-1;border:0;cursor:pointer;font:inherit}.form-note{grid-column:1/-1;margin:0;color:#718891;font-size:12px}.form-status{grid-column:1/-1;margin:0;color:var(--green-dark);font-size:13px;font-weight:800;min-height:20px}
-    .footer{padding:34px 0;border-top:1px solid var(--line);background:#fff;color:#6b8089;font-size:13px}.footer-row{display:flex;align-items:center;justify-content:space-between;gap:20px}.footer-links{display:flex;gap:18px;flex-wrap:wrap}.site-counter{display:inline-flex;align-items:center;gap:7px;padding:7px 11px;border:1px solid var(--line);border-radius:999px;background:#f7fbfc;color:#607783;font-size:12px;font-weight:800;white-space:nowrap}.site-counter strong{color:var(--blue-dark);font-size:13px;font-variant-numeric:tabular-nums}.site-counter[hidden]{display:none!important}
+    .footer{padding:34px 0;border-top:1px solid var(--line);background:#fff;color:#6b8089;font-size:13px}.footer-row{display:flex;align-items:center;justify-content:space-between;gap:20px}.footer-links{display:flex;gap:18px;flex-wrap:wrap}.site-counter{display:inline-flex;align-items:center;gap:7px;padding:7px 11px;border:1px solid var(--line);border-radius:999px;background:#f7fbfc;color:#607783;font-size:12px;font-weight:800;white-space:nowrap}.site-counter strong{color:var(--blue-dark);font-size:13px;font-variant-numeric:tabular-nums}.site-counter[hidden]{display:none!important}.trademark-note{max-width:1180px;margin:22px auto 0;padding-top:18px;border-top:1px solid #e7eef1;color:#8a9ba3;font-size:11px;line-height:1.55;text-align:center}
 
     @media(max-width:900px){
       .client-grid{grid-template-columns:1fr;gap:35px}.client-copy{text-align:center}.client-copy>p{margin-left:auto;margin-right:auto}.client-list{max-width:650px;margin-left:auto;margin-right:auto;text-align:left}.client-free{margin-left:auto;margin-right:auto}.client-demo{min-height:440px;max-width:620px;margin:auto}
@@ -487,8 +488,8 @@
       <div class="container">
         <div class="section-head reveal"><div class="eyebrow">Lancio CassaIQ</div><h2>Due date. Un’unica cassa smart.</h2><p>CassaIQ arriva prima su iPhone e iPad, poi su Android. Dal giorno del lancio potrai scaricarla e provare tutte le funzionalità gratuitamente per 30 giorni.</p></div>
         <div class="store-grid">
-          <div class="store-card reveal"><div class="store-icon"></div><div><b>iPhone e iPad</b><small>Disponibile su App Store</small><span class="store-date">Dal 14 settembre 2026</span></div></div>
-          <div class="store-card reveal"><div class="store-icon">▶</div><div><b>Android</b><small>Disponibile su Google Play</small><span class="store-date">Dal 21 settembre 2026</span></div></div>
+          <div class="store-card reveal"><a class="store-badge-link" href="https://apps.apple.com/it/app/id6793923228" target="_blank" rel="noopener" aria-label="Apri CassaIQ sull’App Store"><img class="store-badge" src="https://tools.applemediaservices.com/api/badges/download-on-the-app-store/black/it-it?size=250x83" alt="Scarica sull’App Store"></a><div><b>CassaIQ per iPhone e iPad</b><small>App approvata</small><span class="store-date">Dal 14 settembre 2026</span></div></div>
+          <div class="store-card reveal"><a class="store-badge-link" href="https://play.google.com/store/apps/details?id=t.menoova.cassaiq" target="_blank" rel="noopener" aria-label="Apri CassaIQ su Google Play"><img class="store-badge" src="https://play.google.com/intl/en_us/badges/static/images/badges/it_badge_web_generic.png" alt="Disponibile su Google Play"></a><div><b>CassaIQ per Android</b><small>App approvata</small><span class="store-date">Dal 21 settembre 2026</span></div></div>
           
         </div>
 
@@ -496,7 +497,7 @@
           <div><strong>30 giorni gratis dal momento del download.</strong><span>Scarica CassaIQ dal tuo store e prova la cassa completa prima di decidere.</span></div>
           <a class="btn-primary" href="#contatti">Avvisami al lancio</a>
         </div>
-        <div class="store-note">I link diretti agli store possono essere collegati appena le pagine pubbliche sono definitive.</div>
+        <div class="store-note">I collegamenti sono già predisposti e apriranno le pagine ufficiali non appena diventeranno pubbliche.</div>
       </div>
     </section>
 
@@ -596,6 +597,7 @@
       </div>
       <div class="footer-links"><a href="/">Menoova</a><a href="#contatti">Informazioni</a><a href="mailto:support@menoova.it">Assistenza</a><a href="privacy.html">Privacy</a><a href="cookie-policy.html">Cookie</a><a href="termini-condizioni.html">Termini</a></div>
     </div>
+    <div class="trademark-note">Apple, il logo Apple, App Store, iPhone e iPad sono marchi di Apple Inc. Google Play e il logo Google Play sono marchi di Google LLC.</div>
   </footer>
 
   <script>
