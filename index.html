@@ -551,18 +551,18 @@
         </div>
         <form class="contact-form reveal from-right" id="contactForm">
           <div class="form-grid">
-            <div class="form-field"><label for="contactName">Nome e cognome</label><input id="contactName" name="name" type="text" autocomplete="name" required></div>
-            <div class="form-field"><label for="contactEmail">Email</label><input id="contactEmail" name="email" type="email" autocomplete="email" required></div>
-            <div class="form-field"><label for="contactPhone">Telefono (facoltativo)</label><input id="contactPhone" name="phone" type="tel" autocomplete="tel"></div>
+            <div class="form-field"><label for="contactName">Nome e cognome</label><input id="contactName" name="name" type="text" autocomplete="name" minlength="2" maxlength="160" required></div>
+            <div class="form-field"><label for="contactEmail">Email</label><input id="contactEmail" name="email" type="email" autocomplete="email" maxlength="254" required></div>
+            <div class="form-field"><label for="contactPhone">Telefono (facoltativo)</label><input id="contactPhone" name="phone" type="tel" autocomplete="tel" maxlength="50"></div>
             <div class="form-field"><label for="contactBusiness">Nome attività (facoltativo)</label><input id="contactBusiness" name="business_name" type="text" autocomplete="organization" maxlength="160"></div>
             <div class="form-field full"><label for="contactSector">Tipo di attività</label><select id="contactSector" name="sector" required><option value="">Seleziona</option><option>Bar</option><option>Panificio</option><option>Ristorazione</option><option>Street food</option><option>Take away</option><option>Pasticceria</option><option>Gelateria</option><option>Gastronomia</option><option>Piccolo negozio</option><option>Altro</option></select></div>
             <div class="form-field full" id="contactOtherSectorField" hidden><label for="contactOtherSector">Specifica la tua attività</label><input id="contactOtherSector" name="sector_other" type="text" maxlength="160" placeholder="Scrivi il tipo di attività"></div>
-            <div class="form-field full"><label for="contactMessage">Come possiamo aiutarti?</label><textarea id="contactMessage" name="message" placeholder="Descrivi brevemente la tua attività o cosa vuoi sapere su CassaIQ" required></textarea></div>
+            <div class="form-field full"><label for="contactMessage">Come possiamo aiutarti?</label><textarea id="contactMessage" name="message" minlength="10" maxlength="4000" placeholder="Descrivi brevemente la tua attività o cosa vuoi sapere su CassaIQ" required></textarea></div>
             <div class="contact-honeypot" aria-hidden="true"><label for="contactWebsite">Sito web</label><input id="contactWebsite" name="website" type="text" tabindex="-1" autocomplete="off"></div>
             <label class="privacy-check"><input name="privacy" type="checkbox" required><span>Ho letto l’<a href="privacy.html">informativa privacy</a> e autorizzo il trattamento dei dati per ricevere risposta.</span></label>
             <button class="btn-primary contact-submit" type="submit">Invia la richiesta</button>
             <p class="form-note">La richiesta sarà inviata direttamente a CassaIQ. Non si aprirà il programma email.</p>
-            <p class="form-status" id="contactFormStatus" aria-live="polite"></p>
+            <p class="form-status" id="contactFormStatus" role="status" aria-live="polite"></p>
           </div>
         </form>
       </div>
@@ -775,8 +775,12 @@
           const data = new FormData(contactForm);
           status.classList.remove('is-error');
           status.textContent = 'Invio della richiesta in corso…';
+          contactForm.setAttribute('aria-busy', 'true');
           submitButton.disabled = true;
           submitButton.textContent = 'Invio in corso…';
+
+          const controller = new AbortController();
+          const timeoutId = window.setTimeout(()=>controller.abort(), 20000);
 
           try{
             const response = await fetch(
@@ -799,10 +803,24 @@
                   p_privacy_accepted: data.get('privacy') === 'on',
                   p_website: String(data.get('website') || '').trim()
                 }),
-                cache: 'no-store'
+                cache: 'no-store',
+                signal: controller.signal
               }
             );
-            if(!response.ok) throw new Error(`Invio HTTP ${response.status}`);
+
+            const responseText = await response.text();
+            let responseData = null;
+            if(responseText){
+              try{ responseData = JSON.parse(responseText); }catch(_){}
+            }
+
+            if(!response.ok){
+              const serverCode = responseData && responseData.code ? responseData.code : 'unknown';
+              throw new Error(`Invio HTTP ${response.status} (${serverCode})`);
+            }
+            if(responseData && responseData.ok === false){
+              throw new Error('La richiesta non è stata accettata dal server');
+            }
 
             contactForm.reset();
             updateOtherSector();
@@ -810,8 +828,12 @@
           }catch(error){
             console.warn('CassaIQ contact form:', error);
             status.classList.add('is-error');
-            status.textContent = 'Non è stato possibile inviare la richiesta. Riprova tra poco.';
+            status.textContent = error && error.name === 'AbortError'
+              ? 'L’invio sta impiegando troppo tempo. Controlla la connessione e riprova.'
+              : 'Non è stato possibile inviare la richiesta. Riprova tra poco.';
           }finally{
+            window.clearTimeout(timeoutId);
+            contactForm.removeAttribute('aria-busy');
             submitButton.disabled = false;
             submitButton.textContent = 'Invia la richiesta';
           }
