@@ -16,12 +16,14 @@
       --radius:26px;
     }
     *{box-sizing:border-box}
-    html{scroll-behavior:smooth;scroll-padding-top:88px}
-    body{margin:0;font-family:Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;color:var(--ink);background:#fff;line-height:1.5}
+    html{scroll-behavior:smooth;scroll-padding-top:88px;width:100%;max-width:100%;overflow-x:hidden;overscroll-behavior-x:none}
+    body{margin:0;font-family:Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;color:var(--ink);background:#fff;line-height:1.5;width:100%;max-width:100%;overflow-x:hidden;position:relative;touch-action:pan-y}
+    @supports (overflow:clip){html,body{overflow-x:clip}}
     a{text-decoration:none;color:inherit}
     .launch-banner{padding:10px 20px;background:#123542;color:#e8f6fa;text-align:center;font-size:14px;font-weight:800;letter-spacing:.01em}
     .launch-banner strong{color:#7edcf7}.launch-banner .sep{display:inline-block;margin:0 12px;color:#7fa0ad}
-    .container{width:min(1180px,calc(100% - 40px));margin:auto}
+    .container{width:min(1180px,calc(100% - 40px));max-width:100%;margin:auto}
+    img,video{max-width:100%}
     .nav{height:76px;display:flex;align-items:center;justify-content:space-between;gap:24px}
     .brand{display:flex;align-items:center;gap:11px;font-weight:900;font-size:24px;letter-spacing:-.7px}
     .brand img{width:42px;height:42px;border-radius:11px;box-shadow:0 7px 18px rgba(47,168,215,.18)}.brand-word{display:inline-flex;align-items:baseline;letter-spacing:-.7px}.brand-cassa{color:#123542}.brand-iq{color:#2fa8d7}
@@ -83,6 +85,9 @@
     .video-shell:before{content:"";position:absolute;inset:-22px -24px 18px 22px;border-radius:36px;background:linear-gradient(135deg,rgba(47,168,215,.16),rgba(85,197,138,.16));transform:rotate(2deg);z-index:0}
     .video-player{position:relative;z-index:1;width:100%;aspect-ratio:1/1;display:block;object-fit:cover;border-radius:30px;background:#0f2028;box-shadow:0 30px 70px rgba(23,56,71,.22);border:1px solid rgba(255,255,255,.75)}
     .video-duration{position:absolute;z-index:2;right:16px;top:16px;background:rgba(15,32,40,.78);color:#fff;border-radius:999px;padding:7px 10px;font-size:12px;font-weight:850;backdrop-filter:blur(8px)}
+    .contact-cta-section{padding:34px 0 42px;background:#f7fbfc}
+    .contact-cta-section .download-trial{max-width:1100px;margin:0 auto}
+    .contact-cta-section .btn-primary{min-width:220px;padding:18px 28px;font-size:17px}
     .phone-section{background:#f7fbfc}
     .split{display:grid;grid-template-columns:1fr 1fr;gap:72px;align-items:center}
     .phone-stage{min-height:470px;position:relative;display:grid;place-items:center}
@@ -168,6 +173,7 @@
     .contact-form{background:#f7fbfc;border:1px solid var(--line);border-radius:26px;padding:30px;box-shadow:0 18px 50px rgba(23,56,71,.08)}
     .form-grid{display:grid;grid-template-columns:1fr 1fr;gap:17px}.form-field{display:grid;gap:7px}.form-field.full{grid-column:1/-1}.form-field label{font-size:13px;font-weight:850;color:#36535f}
     .form-field input,.form-field select,.form-field textarea{width:100%;border:1px solid #cfdee4;border-radius:12px;background:#fff;color:var(--ink);font:inherit;padding:13px 14px;outline:none;transition:border-color .2s ease,box-shadow .2s ease}.form-field textarea{min-height:132px;resize:vertical}.form-field input:focus,.form-field select:focus,.form-field textarea:focus{border-color:var(--blue);box-shadow:0 0 0 4px rgba(47,168,215,.12)}
+    .form-field[hidden]{display:none}.contact-submit:disabled{opacity:.7;cursor:wait;transform:none;box-shadow:none}.form-status.is-error{color:#b2473e}.contact-honeypot{position:absolute!important;left:-10000px!important;width:1px!important;height:1px!important;overflow:hidden!important}
     .privacy-check{grid-column:1/-1;display:flex;align-items:flex-start;gap:10px;color:#607783;font-size:13px}.privacy-check input{margin-top:3px}.privacy-check a{color:var(--blue-dark);font-weight:800}
     .contact-submit{grid-column:1/-1;border:0;cursor:pointer;font:inherit}.form-note{grid-column:1/-1;margin:0;color:#718891;font-size:12px}.form-status{grid-column:1/-1;margin:0;color:var(--green-dark);font-size:13px;font-weight:800;min-height:20px}
     .footer{padding:34px 0;border-top:1px solid var(--line);background:#fff;color:#6b8089;font-size:13px}.footer-row{display:flex;align-items:center;justify-content:space-between;gap:20px}.footer-links{display:flex;gap:18px;flex-wrap:wrap}.site-counter{display:inline-flex;align-items:center;gap:7px;padding:7px 11px;border:1px solid var(--line);border-radius:999px;background:#f7fbfc;color:#607783;font-size:12px;font-weight:800;white-space:nowrap}.site-counter strong{color:var(--blue-dark);font-size:13px;font-variant-numeric:tabular-nums}.site-counter[hidden]{display:none!important}.trademark-note{max-width:1180px;margin:22px auto 0;padding-top:18px;border-top:1px solid #e7eef1;color:#8a9ba3;font-size:11px;line-height:1.55;text-align:center}
@@ -196,14 +202,15 @@
     .faq-answer p{margin:0 0 10px}.faq-answer p:last-child{margin-bottom:0}
     .faq-answer strong{color:#294c59}
 
-    body{overflow-x:hidden}
+    .launch-banner,.site-header,main,.footer{width:100%;max-width:100%;overflow-x:hidden}
+    @supports (overflow:clip){.launch-banner,.site-header,main,.footer{overflow-x:clip}}
     .site-header{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.78);backdrop-filter:saturate(180%) blur(14px);-webkit-backdrop-filter:saturate(180%) blur(14px);border-bottom:1px solid transparent;transition:background .25s ease,border-color .25s ease,box-shadow .25s ease}
     .site-header.scrolled{background:rgba(255,255,255,.88);border-color:rgba(219,232,237,.8);box-shadow:0 14px 30px rgba(23,56,71,.06)}
     .reveal{opacity:0;transform:translateY(34px) scale(.985);transition:opacity .8s ease,transform .8s cubic-bezier(.2,.7,.2,1);transition-delay:var(--reveal-delay,0ms)}
     .reveal.from-left{transform:translateX(-42px) scale(.985)}
     .reveal.from-right{transform:translateX(42px) scale(.985)}
     .reveal.in-view{opacity:1;transform:none}
-    .hero,.client-section,.platforms,.phone-section,.modes,.audience,#prezzo,.faq-section{position:relative;overflow:hidden}
+    .hero,.client-section,.platforms,.phone-section,.modes,.audience,#prezzo,.faq-section,.contact-section{position:relative;overflow:hidden}
     .hero::before,.hero::after,.client-section .orb,.platforms .orb{content:"";position:absolute;border-radius:50%;pointer-events:none;filter:blur(8px);opacity:.6}
     .hero::before{width:260px;height:260px;left:-60px;top:60px;background:radial-gradient(circle,#bceeff 0%,rgba(188,238,255,0) 68%);animation:drift 14s ease-in-out infinite}
     .hero::after{width:280px;height:280px;right:-70px;bottom:30px;background:radial-gradient(circle,#d8f7e5 0%,rgba(216,247,229,0) 70%);animation:drift 16s ease-in-out infinite reverse}
@@ -254,9 +261,10 @@
     .client-real-phone{position:absolute;left:1%;bottom:5px;width:31%;max-width:205px;z-index:4;filter:drop-shadow(0 24px 38px rgba(0,0,0,.2));animation:floatDevice 6.8s ease-in-out infinite}
     .client-real-tablet{position:absolute;right:-2%;top:26px;width:79%;max-width:585px;z-index:2;filter:drop-shadow(0 26px 44px rgba(0,0,0,.22));animation:floatDevice 7.4s ease-in-out infinite 1.1s}
     .client-real-arrow{position:absolute;z-index:6;left:38%;top:52%;transform:translate(-50%,-50%);width:72px;height:72px;border-radius:50%;background:#fff;color:var(--blue);display:grid;place-items:center;font-size:34px;font-weight:950;box-shadow:0 16px 36px rgba(0,0,0,.22);animation:arrowFlow 2.2s ease-in-out infinite}
-    .download-trial{max-width:820px;margin:34px auto 0;padding:24px 26px;border-radius:24px;background:linear-gradient(135deg,#123542,#18546b);color:#fff;display:flex;align-items:center;justify-content:space-between;gap:22px;box-shadow:0 22px 55px rgba(18,53,66,.18)}
-    .download-trial strong{display:block;font-size:24px;letter-spacing:-.7px}.download-trial span{display:block;color:#d3e4ea;margin-top:3px}.download-trial .btn-primary{background:#fff;color:#173847;white-space:nowrap;box-shadow:none}
-    @media(max-width:900px){.client-real-demo{min-height:430px}.download-trial{flex-direction:column;text-align:center}}
+    .contact-cta-section{padding:34px 0 42px;background:#f7fbfc}
+    .download-trial{max-width:1080px;margin:0 auto;padding:30px 34px;border-radius:24px;background:linear-gradient(135deg,#123542,#18546b);color:#fff;display:flex;align-items:center;justify-content:space-between;gap:28px;box-shadow:0 22px 55px rgba(18,53,66,.18)}
+    .download-trial strong{display:block;font-size:27px;letter-spacing:-.8px}.download-trial span{display:block;color:#d3e4ea;margin-top:5px;font-size:17px}.download-trial .btn-primary{background:#fff;color:#173847;white-space:nowrap;box-shadow:none;min-width:210px;padding:17px 28px;font-size:17px}
+    @media(max-width:900px){.reveal.from-left,.reveal.from-right{transform:translateY(34px) scale(.985)}.reveal.in-view{transform:none}.client-real-demo{min-height:430px}.download-trial{flex-direction:column;text-align:center}}
     @media(max-width:600px){.device-image{width:100%}.phone-image{width:min(230px,64vw)}.client-real-demo{min-height:350px}.client-real-phone{width:35%;left:0}.client-real-tablet{width:78%;right:-5%;top:45px}.client-real-arrow{width:54px;height:54px;font-size:25px;left:37%}.download-trial{padding:21px 18px}.download-trial strong{font-size:21px}}
 
   </style>
@@ -285,7 +293,7 @@
     <section class="hero">
       <div class="container hero-grid">
         <div class="hero-copy reveal from-left">
-          <h1><span class="hero-question">Registratore di cassa smart?</span><span class="hero-brand"><span class="hero-brand-dark">Cassa</span><span class="hero-brand-accent">IQ</span><span class="hero-brand-dot"></span></span></h1>
+          <h1><span class="hero-question">Registratore di cassa smart?</span><span class="hero-brand"><span class="hero-brand-dark">Cassa</span><span class="hero-brand-accent">IQ</span><span class="hero-brand-dot">.</span></span></h1>
           <p>Scontrini fiscali e comande dai tuoi dispositivi, anche senza registratore di cassa. Gestisci vendite, prodotti, tavoli e sala da tablet o smartphone.</p>
           <div class="hero-actions">
             <a class="btn-primary" href="#come-funziona">Scopri come funziona</a>
@@ -319,6 +327,14 @@
       </div>
     </section>
 
+    <section class="contact-cta-section" aria-label="Offerta lancio CassaIQ">
+      <div class="container">
+        <div class="download-trial reveal">
+          <div><strong>Scopri l’offerta lancio di CassaIQ.</strong><span>Contattaci per conoscere tutti i dettagli e avere 30 giorni di prova gratuiti.</span></div>
+          <a class="btn-primary" href="#contatti">Contattaci</a>
+        </div>
+      </div>
+    </section>
 
     <section class="phone-section">
       <div class="container split">
@@ -367,7 +383,7 @@
       <div class="container client-grid">
         <div class="client-copy reveal from-left">
           <div class="eyebrow">Sempre connesso</div>
-<h2>CassaIQ Client:<br>sala collegata alla cassa</h2>
+          <h2>CassaIQ Client: la sala collegata alla cassa.</h2>
           <p>Il personale sceglie il tavolo, seleziona i prodotti e invia la comanda direttamente alla cassa principale. Il catalogo arriva da CassaIQ e resta sincronizzato sui dispositivi del personale.</p>
           <ul class="client-list">
             <li>Riceve catalogo, categorie e tavoli dalla CassaIQ principale.</li>
@@ -387,6 +403,7 @@
     <section id="asporto" class="takeaway-section">
       <div class="container takeaway-grid">
         <div class="takeaway-copy reveal from-left">
+          <div class="eyebrow">Nuova funzione</div>
           <h2>Asporto organizzato, dalla prenotazione alla cassa.</h2>
           <p>CassaIQ gestisce gli ordini da asporto nello stesso ambiente della cassa: puoi registrare il cliente, scegliere ritiro o consegna, programmare giorno e ora e richiamare l’ordine quando arriva il momento di prepararlo.</p>
           <ul class="takeaway-list">
@@ -458,13 +475,10 @@
           <div class="aud-card reveal"><span>🍽️</span>Ristorazione</div>
           <div class="aud-card reveal"><span>🍔</span>Street food</div>
           <div class="aud-card reveal"><span>🛍️</span>Take away</div>
-          <div class="aud-card reveal"><span>👕</span>Abbigliamento</div>
-          <div class="aud-card reveal"><span>🚬</span>Tabacchi</div>
-          <div class="aud-card reveal"><span>🍦</span>Pasticcerie e Gelaterie</div>
+          <div class="aud-card reveal"><span>🧁</span>Pasticcerie</div>
+          <div class="aud-card reveal"><span>🍦</span>Gelaterie</div>
           <div class="aud-card reveal"><span>🥘</span>Gastronomie</div>
           <div class="aud-card reveal"><span>🏪</span>Piccoli negozi</div>
-          <div class="aud-card reveal"><span>✂️</span>Parrucchieri e Saloni</div>
-          <div class="aud-card reveal"><span>🛒</span>Alimentari e Minimarket</div>
         </div>
       </div>
     </section>
@@ -473,7 +487,7 @@
       <div class="container price-wrap">
         <div class="price-card reveal from-left">
           <span class="tag">UN SOLO PIANO · TUTTO INCLUSO</span>
-          <div class="price">€9,99 <small>/ mese</small></div>
+          <div class="price">€9,90 <small>/ mese</small></div>
           <div class="after">un solo piano, tutte le funzioni principali incluse</div>
           <ul class="ticks"><li>Cassa e vendita rapida</li><li>Prodotti, categorie e supplementi</li><li>Tavoli e comande</li><li>Gestione asporto</li><li>Statistiche</li><li>CassaIQ Client incluso</li><li>iOS e Android</li></ul>
           <a class="btn-primary" href="#scarica">Scarica CassaIQ</a>
@@ -481,7 +495,7 @@
         <div class="price-copy reveal from-right">
           <div class="eyebrow">Quanto costa</div>
           <h2>Un prezzo semplice. Nessun pacchetto da scegliere.</h2>
-          <p>CassaIQ costa <strong>€9,99 al mese</strong> e include tutte le funzioni principali in un unico piano. Il Client per la sala è incluso e non richiede un abbonamento separato.</p>
+          <p>CassaIQ costa <strong>€9,90 al mese</strong> e include tutte le funzioni principali in un unico piano. Il Client per la sala è incluso e non richiede un abbonamento separato.</p>
         </div>
       </div>
     </section>
@@ -495,10 +509,6 @@
           
         </div>
 
-        <div class="download-trial reveal">
-          <div><strong>30 giorni gratis dal momento del download.</strong><span>Scarica CassaIQ dal tuo store e prova la cassa completa prima di decidere.</span></div>
-          <a class="btn-primary" href="#contatti">Avvisami al lancio</a>
-        </div>
         <div class="store-note">I collegamenti sono già predisposti e apriranno le pagine ufficiali non appena diventeranno pubbliche.</div>
       </div>
     </section>
@@ -506,9 +516,9 @@
     <section id="contatti" class="contact-section">
       <div class="container contact-grid">
         <div class="contact-copy reveal from-left">
-          <div class="eyebrow">Parliamo della tua attività</div>
+          <div class="eyebrow">Offerta lancio</div>
           <h2>Vuoi sapere se CassaIQ è adatta a te?</h2>
-          <p>Raccontaci come lavori oggi. Ti risponderemo con le informazioni utili e, se lo desideri, ti avviseremo quando l’app sarà disponibile sul tuo store.</p>
+          <p>Raccontaci come lavori oggi: ti daremo tutte le informazioni sull’offerta lancio e sui 30 giorni di prova gratuiti.</p>
           <div class="contact-details">
             <a href="mailto:hello@menoova.it"><i aria-hidden="true">✉</i>hello@menoova.it</a>
             <span><i aria-hidden="true"></i>iOS dal 14 settembre 2026</span>
@@ -520,11 +530,14 @@
             <div class="form-field"><label for="contactName">Nome e cognome</label><input id="contactName" name="name" type="text" autocomplete="name" required></div>
             <div class="form-field"><label for="contactEmail">Email</label><input id="contactEmail" name="email" type="email" autocomplete="email" required></div>
             <div class="form-field"><label for="contactPhone">Telefono (facoltativo)</label><input id="contactPhone" name="phone" type="tel" autocomplete="tel"></div>
-            <div class="form-field"><label for="contactSector">Tipo di attività</label><select id="contactSector" name="sector" required><option value="">Seleziona</option><option>Bar</option><option>Panificio</option><option>Ristorazione</option><option>Street food</option><option>Take away</option><option>Pasticceria</option><option>Gelateria</option><option>Gastronomia</option><option>Piccolo negozio</option><option>Altro</option></select></div>
+            <div class="form-field"><label for="contactBusiness">Nome attività (facoltativo)</label><input id="contactBusiness" name="business_name" type="text" autocomplete="organization" maxlength="160"></div>
+            <div class="form-field full"><label for="contactSector">Tipo di attività</label><select id="contactSector" name="sector" required><option value="">Seleziona</option><option>Bar</option><option>Panificio</option><option>Ristorazione</option><option>Street food</option><option>Take away</option><option>Pasticceria</option><option>Gelateria</option><option>Gastronomia</option><option>Piccolo negozio</option><option>Altro</option></select></div>
+            <div class="form-field full" id="contactOtherSectorField" hidden><label for="contactOtherSector">Specifica la tua attività</label><input id="contactOtherSector" name="sector_other" type="text" maxlength="160" placeholder="Scrivi il tipo di attività"></div>
             <div class="form-field full"><label for="contactMessage">Come possiamo aiutarti?</label><textarea id="contactMessage" name="message" placeholder="Descrivi brevemente la tua attività o cosa vuoi sapere su CassaIQ" required></textarea></div>
+            <div class="contact-honeypot" aria-hidden="true"><label for="contactWebsite">Sito web</label><input id="contactWebsite" name="website" type="text" tabindex="-1" autocomplete="off"></div>
             <label class="privacy-check"><input name="privacy" type="checkbox" required><span>Ho letto l’<a href="privacy.html">informativa privacy</a> e autorizzo il trattamento dei dati per ricevere risposta.</span></label>
             <button class="btn-primary contact-submit" type="submit">Invia la richiesta</button>
-            <p class="form-note">Premendo “Invia” si aprirà il tuo programma email con la richiesta già compilata.</p>
+            <p class="form-note">La richiesta sarà inviata direttamente a CassaIQ. Non si aprirà il programma email.</p>
             <p class="form-status" id="contactFormStatus" aria-live="polite"></p>
           </div>
         </form>
@@ -582,7 +595,7 @@
           <details class="faq-item reveal">
             <summary>Quanto costa CassaIQ?</summary>
             <div class="faq-answer">
-              <p>Il piano costa <strong>€9,99 al mese</strong> e include le funzionalità principali di CassaIQ e CassaIQ Client. La prova gratuita è disponibile direttamente dalla sezione di download.</p>
+              <p>Il piano costa <strong>€9,90 al mese</strong> e include le funzionalità principali di CassaIQ e CassaIQ Client. La prova gratuita è disponibile direttamente dalla sezione di download.</p>
             </div>
           </details>
         </div>
@@ -717,22 +730,67 @@
 
       const contactForm = document.getElementById('contactForm');
       if(contactForm){
-        contactForm.addEventListener('submit', (event)=>{
+        const sectorSelect = document.getElementById('contactSector');
+        const otherSectorField = document.getElementById('contactOtherSectorField');
+        const otherSectorInput = document.getElementById('contactOtherSector');
+        const submitButton = contactForm.querySelector('.contact-submit');
+        const status = document.getElementById('contactFormStatus');
+
+        const updateOtherSector = ()=>{
+          const show = sectorSelect.value === 'Altro';
+          otherSectorField.hidden = !show;
+          otherSectorInput.required = show;
+          if(!show) otherSectorInput.value = '';
+        };
+        sectorSelect.addEventListener('change', updateOtherSector);
+        updateOtherSector();
+
+        contactForm.addEventListener('submit', async (event)=>{
           event.preventDefault();
+          if(!contactForm.reportValidity()) return;
           const data = new FormData(contactForm);
-          const subject = `Richiesta informazioni CassaIQ · ${data.get('sector')}`;
-          const body = [
-            `Nome: ${data.get('name')}`,
-            `Email: ${data.get('email')}`,
-            `Telefono: ${data.get('phone') || 'Non indicato'}`,
-            `Tipo di attività: ${data.get('sector')}`,
-            '',
-            'Messaggio:',
-            data.get('message')
-          ].join('\n');
-          const status = document.getElementById('contactFormStatus');
-          if(status) status.textContent = 'Richiesta pronta: si sta aprendo il tuo programma email.';
-          window.location.href = `mailto:hello@menoova.it?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+          status.classList.remove('is-error');
+          status.textContent = 'Invio della richiesta in corso…';
+          submitButton.disabled = true;
+          submitButton.textContent = 'Invio in corso…';
+
+          try{
+            const response = await fetch(
+              `${CASSAIQ_SITE_COUNTER.supabaseUrl}/rest/v1/rpc/cassaiq_contact_submit`,
+              {
+                method: 'POST',
+                headers: {
+                  'apikey': CASSAIQ_SITE_COUNTER.publishableKey,
+                  'Authorization': `Bearer ${CASSAIQ_SITE_COUNTER.publishableKey}`,
+                  'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                  p_name: String(data.get('name') || '').trim(),
+                  p_email: String(data.get('email') || '').trim(),
+                  p_phone: String(data.get('phone') || '').trim() || null,
+                  p_business_name: String(data.get('business_name') || '').trim() || null,
+                  p_sector: String(data.get('sector') || '').trim(),
+                  p_sector_other: String(data.get('sector_other') || '').trim() || null,
+                  p_message: String(data.get('message') || '').trim(),
+                  p_privacy_accepted: data.get('privacy') === 'on',
+                  p_website: String(data.get('website') || '').trim()
+                }),
+                cache: 'no-store'
+              }
+            );
+            if(!response.ok) throw new Error(`Invio HTTP ${response.status}`);
+
+            contactForm.reset();
+            updateOtherSector();
+            status.textContent = 'Richiesta inviata. Ti ricontatteremo presto.';
+          }catch(error){
+            console.warn('CassaIQ contact form:', error);
+            status.classList.add('is-error');
+            status.textContent = 'Non è stato possibile inviare la richiesta. Riprova tra poco.';
+          }finally{
+            submitButton.disabled = false;
+            submitButton.textContent = 'Invia la richiesta';
+          }
         });
       }
     });
