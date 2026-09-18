@@ -284,6 +284,22 @@
     @media(max-width:900px){.reveal.from-left,.reveal.from-right{transform:translateY(34px) scale(.985)}.reveal.in-view{transform:none}.client-real-demo{min-height:430px}.download-trial{flex-direction:column;text-align:center}}
     @media(max-width:600px){.device-image{width:100%}.phone-image{width:min(230px,64vw)}.client-real-demo{min-height:350px}.client-real-phone{width:35%;left:0}.client-real-tablet{width:78%;right:-5%;top:45px}.client-real-arrow{width:54px;height:54px;font-size:25px;left:37%}.download-trial{padding:21px 18px}.download-trial strong{font-size:21px}}
 
+  
+    /* Menu mobile */
+    .mobile-menu-toggle{display:none}
+    @media(max-width:900px){
+      .site-header{overflow:visible}
+      .nav{position:relative}
+      .mobile-menu-toggle{display:inline-flex;align-items:center;gap:9px;border:0;border-radius:13px;background:var(--blue);color:#fff;padding:11px 16px;font:inherit;font-size:14px;font-weight:800;cursor:pointer;min-height:44px}
+      .mobile-menu-toggle svg{width:19px;height:19px;flex:none}
+      .mobile-menu-toggle:focus-visible,.navlinks a:focus-visible{outline:3px solid var(--blue-dark);outline-offset:3px}
+      .navlinks{display:none;position:absolute;top:calc(100% - 2px);right:0;width:min(300px,100%);max-height:calc(100dvh - 100px);overflow-y:auto;flex-direction:column;align-items:stretch;gap:3px;padding:12px;background:#fff;border:1px solid var(--line);border-radius:18px;box-shadow:0 18px 45px rgba(23,56,71,.18)}
+      .navlinks.is-open{display:flex}
+      .navlinks a:not(.nav-cta){display:block;padding:10px 12px;border-radius:10px;min-height:44px}
+      .navlinks a:not(.nav-cta):hover{background:var(--blue-soft);color:var(--blue-dark)}
+      .navlinks .nav-cta{margin-top:3px;min-height:44px;font-size:14px}
+    }
+
   </style>
 </head>
 <body>
@@ -295,7 +311,11 @@
   <header class="site-header"><div class="container">
     <nav class="nav">
       <a class="brand" href="#"><img src="assets/cassaiq-icon.png" alt="CassaIQ"><span class="brand-word"><span class="brand-cassa">Cassa</span><span class="brand-iq">IQ</span></span></a>
-      <div class="navlinks">
+      <button class="mobile-menu-toggle" type="button" aria-expanded="false" aria-controls="main-navigation" aria-label="Apri menu di navigazione">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
+        <span>Menu</span>
+      </button>
+      <div class="navlinks" id="main-navigation">
         <a href="#come-funziona">Come funziona</a>
         <a href="#video">Video</a>
         <a href="#client">Client</a>
@@ -851,6 +871,33 @@
         });
       }
     });
+  </script>
+
+
+  <script>
+    (() => {
+      const toggle = document.querySelector('.mobile-menu-toggle');
+      const links = document.getElementById('main-navigation');
+      const setOpen = (open) => {
+        links.classList.toggle('is-open', open);
+        toggle.setAttribute('aria-expanded', String(open));
+        toggle.setAttribute('aria-label', open ? 'Chiudi menu di navigazione' : 'Apri menu di navigazione');
+      };
+      toggle.addEventListener('click', () => setOpen(toggle.getAttribute('aria-expanded') !== 'true'));
+      links.addEventListener('click', event => {
+        if (event.target.closest('a')) setOpen(false);
+      });
+      document.addEventListener('click', event => {
+        if (!links.contains(event.target) && !toggle.contains(event.target)) setOpen(false);
+      });
+      document.addEventListener('keydown', event => {
+        if (event.key === 'Escape' && toggle.getAttribute('aria-expanded') === 'true') {
+          setOpen(false);
+          toggle.focus();
+        }
+      });
+      window.matchMedia('(max-width:900px)').addEventListener('change', () => setOpen(false));
+    })();
   </script>
 
 </body>
